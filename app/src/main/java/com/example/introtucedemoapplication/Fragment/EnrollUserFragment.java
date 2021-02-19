@@ -393,6 +393,7 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(getContext(), "Please Wait!", Toast.LENGTH_SHORT).show();
         if(requestCode == CAMERA_REQUEST_CODE){
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bitmap=(Bitmap)data.getExtras().get("data");

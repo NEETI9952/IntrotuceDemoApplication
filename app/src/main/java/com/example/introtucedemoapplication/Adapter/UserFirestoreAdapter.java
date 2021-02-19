@@ -3,6 +3,7 @@ package com.example.introtucedemoapplication.Adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +60,14 @@ public class UserFirestoreAdapter extends FirestoreRecyclerAdapter<User,UserFire
 
         holder.userDetails.setText(model.getGender() + " | " + String.valueOf(age) + " | " + model.getHomeTown());
 
-        if(model.getImageUrl()!="" ){
+        if(model.getImageUrl()!="" ) {
             Glide.with(context).load(model.getImageUrl()).into(holder.profileImage);
+            Log.i("hh","profile");
+        } else{
+
+            holder.profileImage.setImageResource(R.drawable.ic_round_account_circle_24);
+            Log.i("hh","circle");
+//
         }
 
 
@@ -121,6 +128,11 @@ public class UserFirestoreAdapter extends FirestoreRecyclerAdapter<User,UserFire
 
     @Override
     public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
         return position;
     }
 
