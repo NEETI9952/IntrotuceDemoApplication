@@ -112,10 +112,7 @@ public class UserFirestoreAdapter extends FirestoreRecyclerAdapter<User,UserFire
         }
     }
 
-    @Override
-    public long getItemId(int position) {
-        return super.getItemId(position);
-    }
+
 
     @Override
     public int getItemCount() {
@@ -127,8 +124,5 @@ public class UserFirestoreAdapter extends FirestoreRecyclerAdapter<User,UserFire
         return position;
     }
 
-    @Override
-    public void setHasStableIds(boolean hasStableIds) {
-        super.setHasStableIds(hasStableIds);
-    }
+
 }

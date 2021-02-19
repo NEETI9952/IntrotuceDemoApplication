@@ -141,8 +141,6 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
         gender.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 createGenderDialog();
             }
         });
@@ -265,6 +263,7 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
                                                 } else {
                                                     telephoneNumber.setError(null);
                                                     telephoneNumber.setErrorEnabled(false);
+
                                                     saveUserDetail();
                                                 }
                                             }
@@ -292,9 +291,11 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
         userMap.put("phoneNumber", phoneNumber.getEditText().getText().toString().trim());
         userMap.put("telephoneNumber", telephoneNumber.getEditText().getText().toString().trim());
 
+
         if (imageUri != null) {
             userMap.put("imageUrl", imageUri.toString());
         } else {
+
             userMap.put("imageUrl", "");
         }
 
@@ -303,7 +304,8 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
         userCollectionReference.document().set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                hideProgressBar();
+
+
                 Toast.makeText(getContext(), "User Successfully Added!", Toast.LENGTH_SHORT).show();
                 firstName.getEditText().setText("");
                 lastName.getEditText().setText("");
@@ -314,7 +316,10 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
                 hometown.getEditText().setText("");
                 phoneNumber.getEditText().setText("");
                 telephoneNumber.getEditText().setText("");
-                profilePhoto.setImageResource(R.drawable.ic_round_account_circle_24);
+                profilePhoto.setImageResource(R.drawable.ic_baseline_image_24);
+                hideProgressBar();
+
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -392,6 +397,8 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap bitmap=(Bitmap)data.getExtras().get("data");
                 profilePhoto.setImageBitmap(bitmap);
+                profilePhoto.setTag("photo added");
+                showProgressBar();
                 handleUpload(bitmap);
 
             }
@@ -403,9 +410,11 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
                 try {
                     Bitmap bitmap=MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
                     profilePhoto.setImageBitmap(bitmap);
+                    showProgressBar();
                     handleUpload(bitmap);
                 } catch (IOException e) {
-
+                    Toast.makeText(getContext(), "Photo not uploaded", Toast.LENGTH_SHORT).show();
+                    hideProgressBar();
                     e.printStackTrace();
                 }
 
@@ -432,6 +441,8 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        hideProgressBar();
+                        Toast.makeText(getContext(), "Photo not uploaded", Toast.LENGTH_SHORT).show();
                         Log.e("testimageupload", e.getMessage(),e.getCause() );
                     }
                 });
@@ -442,7 +453,10 @@ public class EnrollUserFragment extends Fragment implements View.OnClickListener
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+
                         imageUri=uri;
+                        Toast.makeText(getContext(), "Photo uploaded", Toast.LENGTH_SHORT).show();
+                        hideProgressBar();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -49,7 +49,6 @@ public class UserListFragment extends Fragment {
 
         FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>().setQuery(query, User.class).build();
         userFirestoreAdapter = new UserFirestoreAdapter(getContext(), options);
-        userFirestoreAdapter.setHasStableIds(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(userFirestoreAdapter);
