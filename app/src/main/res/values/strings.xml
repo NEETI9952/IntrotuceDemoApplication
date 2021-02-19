@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">IntrotuceDemoApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="titleSavedUserFragment">Users</string>
+    <string name="titleEnrollUserFragment">Enroll</string>
+    <string name="close_app">close app</string>
+    <string name="demo_application">Demo Application</string>
+    <string name="select_profile_photo">Select Profile Photo</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date_of_birth">Date Of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="home_town">Home Town</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="telephone_number">Telephone Number</string>
+    <string name="add_user">ADD USER</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="deleteuser">deleteUser</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62070850276",
+    "project_id": "introtucedemoapplication",
+    "storage_bucket": "introtucedemoapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62070850276:android:23d66bd75bd244372862f1",
+        "android_client_info": {
+          "package_name": "com.example.introtucedemoapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62070850276-hn6n103q85njjqd6ma38p6f9n8vdcsdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLIO1AS_HDWDoNtTMQxO3TJnIgFoBav6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62070850276-hn6n103q85njjqd6ma38p6f9n8vdcsdj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
